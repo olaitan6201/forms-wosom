@@ -15,3 +15,9 @@ export interface FormState {
     description: string;
     questions: Question[];
 }
+
+export interface OptionType {
+    svg: any;
+    text: string;
+    value: QuestionType;
+}
