@@ -2,16 +2,18 @@ import { Box, Container, SvgIcon } from '@mui/material';
 import React from 'react';
 import QuestionCard from './QuestionCard';
 
-const QuestionsWrapper: React.FC = () => (
+const QuestionsWrapper: React.FC<{ children: React.ReactNode }> = ({
+    children,
+}) => (
     <Container maxWidth="md" className="questions-wrapper">
-        <QuestionCard />
-
-        <AddNewQuestion />
+        {children}
     </Container>
 );
 
-export const AddNewQuestion: React.FC = () => (
-    <Box className="add-question">
+export const AddNewQuestion: React.FC<{ handleClick: () => void }> = ({
+    handleClick,
+}) => (
+    <Box className="add-question" onClick={handleClick}>
         <SvgIcon>
             <svg
                 focusable="false"

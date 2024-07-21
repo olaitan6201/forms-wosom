@@ -10,7 +10,7 @@ import {
     SvgIcon,
 } from '@mui/material';
 import React from 'react';
-import { OptionType } from '../interfaces';
+import { OptionType, Question, QuestionType } from '../interfaces';
 
 const options: OptionType[] = [
     {
@@ -71,10 +71,15 @@ const options: OptionType[] = [
     },
 ];
 
-const QuestionOption: React.FC = () => {
+const QuestionOption: React.FC<{
+    question: Question;
+    handleChange: (val: QuestionType) => any;
+}> = ({ question, handleChange }) => {
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef<HTMLDivElement>(null);
-    const [selectedIndex, setSelectedIndex] = React.useState(2);
+    const [selectedIndex, setSelectedIndex] = React.useState(
+        options.findIndex((opt) => opt.value === question.descriptive) ?? 2,
+    );
 
     const handleClick = () => {};
 
@@ -83,6 +88,10 @@ const QuestionOption: React.FC = () => {
         index: number,
     ) => {
         setSelectedIndex(index);
+        const option: OptionType | undefined = options.find(
+            (val, i) => i === index,
+        );
+        handleChange(option?.value ?? 'short_answer');
         setOpen(false);
     };
 

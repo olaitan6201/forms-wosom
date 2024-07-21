@@ -1,11 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { FormState, Question } from '../interfaces';
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState: FormState = {
     title: '',
     subtitle: '',
     description: '',
-    questions: [],
+    questions: [
+        {
+            id: uuidv4(),
+            text: '',
+            descriptive: 'short_answer',
+            options: [],
+            answer: '',
+            is_required: false,
+        },
+    ],
 };
 
 const formSlice = createSlice({

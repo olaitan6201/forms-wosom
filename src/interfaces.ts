@@ -4,7 +4,7 @@ export interface Question {
     id: string;
     text: string;
     descriptive: QuestionType;
-    options: string[];
+    options: Option[];
     answer: string;
     is_required: boolean;
 }
@@ -20,4 +20,9 @@ export interface OptionType {
     svg: any;
     text: string;
     value: QuestionType;
+}
+
+export interface Option{
+    id: string;
+    value: string;
 }
