@@ -83,13 +83,10 @@ const QuestionOption: React.FC<{
 
     const handleClick = () => {};
 
-    const handleMenuItemClick = (
-        event: React.MouseEvent<HTMLLIElement, MouseEvent>,
-        index: number,
-    ) => {
+    const handleMenuItemClick = (index: number) => {
         setSelectedIndex(index);
         const option: OptionType | undefined = options.find(
-            (val, i) => i === index,
+            (_, i) => i === index,
         );
         handleChange(option?.value ?? 'short_answer');
         setOpen(false);
@@ -175,11 +172,8 @@ const QuestionOption: React.FC<{
                                                     index === selectedIndex
                                                 }
                                                 className="option"
-                                                onClick={(event) =>
-                                                    handleMenuItemClick(
-                                                        event,
-                                                        index,
-                                                    )
+                                                onClick={() =>
+                                                    handleMenuItemClick(index)
                                                 }
                                             >
                                                 <SvgIcon
