@@ -6,6 +6,7 @@ import QuestionsWrapper from '../components/QuestionsWrapper';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store';
 import QuestionViewCard from '../components/QuestionViewCard';
+import Share from '../components/Share';
 
 const QuestionForumPage: React.FC = () => {
     const formState = useSelector((state: RootState) => state.form);
@@ -24,6 +25,7 @@ const QuestionForumPage: React.FC = () => {
                     />
                 ))}
             </QuestionsWrapper>
+            <Share />
         </Box>
     );
 };
