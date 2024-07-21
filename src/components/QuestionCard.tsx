@@ -34,7 +34,7 @@ const QuestionCard: React.FC<QuestionCardType> = ({
 
     const toggleRequired = () => {
         dispatch(
-            modifyQuestion({ ...question, is_required: question.is_required }),
+            modifyQuestion({ ...question, is_required: !question.is_required }),
         );
     };
 
@@ -99,11 +99,11 @@ const QuestionCard: React.FC<QuestionCardType> = ({
         HTMLTextAreaElement | HTMLInputElement
     > = (e) => {
         let tempQuestion: Question = { ...question };
-        let options = tempQuestion.options;
+        let options = [...tempQuestion.options];
         const { id: key, value } = e.target;
         const index = options.findIndex((opt) => opt.id === key);
         if (index !== -1) {
-            options[index].value = value;
+            options[index] = { id: options[index].id, value };
         }
         tempQuestion.options = options;
         dispatch(modifyQuestion(tempQuestion));

@@ -11,8 +11,8 @@ import { RootState } from '../store';
 import { createQuestion } from '../store/actions';
 
 const QuestionsPage: React.FC = () => {
-    const dispatch = useDispatch();
-    const formState = useSelector((state: RootState) => state.form);
+        const dispatch = useDispatch();
+        const formState = useSelector((state: RootState) => state.form);
     const [validatedId, setValidatedId] = useState<string>('');
 
     const handleAddQuestion = (auto: boolean = false) => {
@@ -54,7 +54,7 @@ const QuestionsPage: React.FC = () => {
             <FormWrapper>
                 <Form />
             </FormWrapper>
-            <QuestionsWrapper>
+            <QuestionsWrapper maxWidth='md'>
                 {formState.questions.map((question, i) => (
                     <QuestionCard
                         key={question.id}

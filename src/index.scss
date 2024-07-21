@@ -151,7 +151,7 @@ body {
 
 .questions-wrapper {
     width: 100%;
-    margin: 280px auto 80px;
+    margin: 260px auto 80px;
     box-sizing: border-box;
     display: block;
     padding-left: 16px;
@@ -171,7 +171,7 @@ body {
         rgba(0, 0, 0, 0.14) 0px 5px 8px 0px,
         rgba(0, 0, 0, 0.12) 0px 1px 14px 0px;
 
-    &:hover {
+    &:not(.view):hover {
         border-top: 4px solid rgb(48, 111, 219);
         border-right-style: solid;
         border-bottom-style: solid;
@@ -199,6 +199,7 @@ body {
         flex-direction: column;
         position: relative;
         min-width: 0px;
+        width: 100%;
         padding: 0px;
         margin: 0px;
         border: 0px;
@@ -293,6 +294,28 @@ body {
         font-size: 15px;
         cursor: pointer;
     }
+
+    &.view {
+        gap: 0!important;
+        .required {
+            margin-top: 1.6px;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: end;
+            justify-content: flex-end;
+
+            .text {
+                margin: 0px 0px 0px 8px;
+                font-family: Roboto, Helvetica, Arial, sans-serif;
+                font-weight: 400;
+                font-size: 0.875rem;
+                line-height: 1.43;
+                letter-spacing: 0.01071em;
+                color: red;
+            }
+        }
+    }
 }
 
 .add-question {
@@ -309,10 +332,26 @@ body {
     align-items: center;
 }
 
+.question-view {
+    margin: 0px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    padding: 8px;
+    text-transform: uppercase;
+}
+
 @media (min-width: 600px) {
-    .text-box, .option-wrapper {
-        width: 70%;
+    .text-box,
+    .option-wrapper {
+        width: 70% !important;
         margin-bottom: 0px;
+
+        &.view {
+            width: 100% !important;
+        }
     }
 
     .form-type {

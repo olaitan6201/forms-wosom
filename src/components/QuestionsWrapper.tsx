@@ -1,11 +1,11 @@
 import { Box, Container, SvgIcon } from '@mui/material';
 import React from 'react';
-import QuestionCard from './QuestionCard';
 
-const QuestionsWrapper: React.FC<{ children: React.ReactNode }> = ({
+const QuestionsWrapper: React.FC<{ children: React.ReactNode, maxWidth: any }> = ({
     children,
+    maxWidth
 }) => (
-    <Container maxWidth="md" className="questions-wrapper">
+    <Container maxWidth={maxWidth} className="questions-wrapper">
         {children}
     </Container>
 );
